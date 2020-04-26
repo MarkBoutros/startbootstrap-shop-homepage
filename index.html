@@ -17,11 +17,39 @@
 
 <body>
   <style>
+    /*
+    CSS content specific to game page
+    elements styled include: game button
+    and score text
+    */
+    #gameContain{
+      background-color: grey;
+      width: auto;
+      min-height: 100px;
+      margin: 20px 0px ;
+    }
+    .scoreText{
+      padding-top: 50px;
+      position: relative;
+      text-align: center;
+    }
+    .scoreBox{
+      position: relative;
+      text-align: center;
+    }
     .gameBut{
       min-width: 200px;
       min-height: 200px;
-      border: 10px solid black;
-      margin: 100px 66% 100px 33%;
+      border: 4px solid black;
+      margin: 20px 62% 50px 38%;
+      align-items: center;
+    }
+    .btnContain{
+      background-color: grey;
+      padding: 10px;
+    }
+    .btnContain button {
+      margin: 10px 0px;
     }
     body{
       padding-top: 60px;
@@ -66,13 +94,14 @@
       <div class="col-lg-3">
         <!--Title & Side Bar-->
         <h1 class="my-4">clickWell</h1>
-        <div class="list-group">
-          <a href="#" class="list-group-item">Category 1</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
-          <a href="#" class="list-group-item">Category 4</a>
-          <a href="#" class="list-group-item">Category 5</a>
-          <a href="#" class="list-group-item">Category 6</a>
+        <div class="list-group btnContain">
+          <button class="btn-default">Drink Water</button>
+          <button class="btn-default">Sleep</button>
+          <button class="btn-default">Eat Healthy</button>
+          <button class="btn-default">PPP 4</button>
+          <button class="btn-default">PPP 5</button>
+          <button class="btn-default">PPP 6</button>
+
         </div>
 
       </div>
@@ -81,8 +110,16 @@
       <div class="col-lg-9">
 
         <!-- main clicker button-->
-        <button type="button" class="btn gameBut"> :) </button>
+        <div id="gameContain">
+          
+          <span class="scoreDat">
+            <h1 class="scoreText"> Wellth: </h1>
+            <h1 class="scoreBox" id="scoreBoi">0</h1>
+          </span>
+          <button type="button" class="btn gameBut" onclick="incScore()"> :) </button>
 
+        </div>
+        
         <div class="row">
 
           <div class="col-lg-4 col-md-6 mb-4">
@@ -90,9 +127,8 @@
               <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">Item One</a>
+                  <a href="#">Drink Water</a>
                 </h4>
-                <h5>$24.99</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
               <div class="card-footer">
@@ -106,9 +142,8 @@
               <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">Item Two</a>
+                  <a href="#">Sleep</a>
                 </h4>
-                <h5>$24.99</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
               </div>
               <div class="card-footer">
@@ -122,9 +157,8 @@
               <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">Item Three</a>
+                  <a href="#">Eat Healthy</a>
                 </h4>
-                <h5>$24.99</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
               <div class="card-footer">
@@ -140,7 +174,6 @@
                 <h4 class="card-title">
                   <a href="#">Item Four</a>
                 </h4>
-                <h5>$24.99</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
               <div class="card-footer">
@@ -202,6 +235,19 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
+
+  <script>
+    function incScore() {
+      var score;
+    
+      score = parseInt(document.querySelector(".scoreBox").textContent);
+      console.log("score was: "+score);
+      score = score + 1;
+      document.getElementById("scoreBoi").innerHTML = score;
+      console.log("score is now: "+score);
+    }
+
+  </script>
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
